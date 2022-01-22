@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 
-app.get('/hello', (req, res) =>
+app.get('', (req, res) =>
     res.send('Hello World!'));
 
 app.get('/add/:a/:b', (req, res) => {
