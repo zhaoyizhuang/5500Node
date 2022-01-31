@@ -1,5 +1,5 @@
 /**
- * this class represents the location of the userAccount.
+ * This class represents the location of the userAccount.
  */
 export default class Location {
     public latitude:number = 0.0;
