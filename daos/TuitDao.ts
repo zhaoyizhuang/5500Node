@@ -1,34 +1,43 @@
 import Tuit from "../models/Tuit";
 import TuitDaoI from "../interfaces/TuitDao";
 import TuitModel from "../mongoose/TuitModel";
-import UserDao from "./UserDao";
-import UserModel from "../mongoose/UserModel";
 
+/**
+ * This class represents the Tuit Data Access Object which is used to connect the object with
+ * the database actions.
+ */
 export default class TuitDao implements TuitDaoI{
-    async createTuit(tuit: Tuit): Promise<Tuit> {
-        return await TuitModel.create(tuit);
+    private static tuitDao: TuitDao | null = null;
+    public static getInstance = (): TuitDao => {
+        if (TuitDao.tuitDao === null) {
+            TuitDao.tuitDao = new TuitDao();
+        }
+        return TuitDao.tuitDao;
+    }
+    private constructor() {}
+
+    async createTuit(uid: string, tuit: Tuit): Promise<Tuit> {
+        return await TuitModel.create({...tuit, postBy: uid});
     }
 
     async deleteTuit(tid: string): Promise<any> {
-        return await TuitModel.deleteOne({_id: tid});
+        return TuitModel.deleteOne({_id: tid});
     }
 
     async findAllTuits(): Promise<Tuit[]> {
-        return await TuitModel.find();
+        return TuitModel.find();
     }
 
-    async findTuitById(tid: string): Promise<Tuit> {
-        return await TuitModel.findById({_id: tid});
+    async findTuitById(tid: string): Promise<any> {
+        return TuitModel.findById(tid).populate("postedBy").exec();
     }
 
     async findTuitsByUser(uid: string): Promise<Tuit[]> {
-        return await UserModel.findById(uid)
-            .then(u =>
-                TuitModel.find({postBy: u}));
+        return TuitModel.find({postBy: uid});
     }
 
     async updateTuit(tid: string, tuit: Tuit): Promise<any> {
-        return await TuitModel.updateOne({_id: tid}, {$set: Tuit});
+        return TuitModel.updateOne({_id: tid}, {$set: Tuit});
     }
 
 }

@@ -1,14 +1,13 @@
-import mongoose from "mongoose";
-//import User from "../models/User";
-import User from "./UserSchema";
+import mongoose, {Schema} from "mongoose";
+import Tuit from "../models/Tuit";
 
 /**
  * This is the schema which represent tuit document instances stores in the
  * MongoDB database.
  */
-const TuitSchema = new mongoose.Schema({
+const TuitSchema = new mongoose.Schema<Tuit>({
     tuit: {type: String, required: true},
     postedOn: Date,
-    postBy: User
+    postBy: {type: Schema.Types.ObjectId, ref: "UserModel"}
 }, {collection: 'tuits'});
 export default TuitSchema;

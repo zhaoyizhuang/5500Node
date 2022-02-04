@@ -1,29 +1,22 @@
 import express from 'express';
 import UserController from "./controllers/UserController";
-import UserDao from "./daos/UserDao";
 import TuitController from "./controllers/TuitController";
-import TuitDao from "./daos/TuitDao";
+import bodyParser from "body-parser";
 
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/tuiter-db")
+mongoose
+    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     .then(() => {console.log("MongoDB connected")});
 
-const userDao = new UserDao();
-const tuitDao = new TuitDao();
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+//app.use(express.json());
+app.use(bodyParser.json());
 
-const userController = new UserController(app, userDao);
-const tuitController = new TuitController(app, tuitDao);
+const userController = UserController.getInstance(app);
+const tuitController = TuitController.getInstance(app);
 
 app.get('', (req, res) =>
-    res.send('Hello World!'));
-app.get('/add/:a/:b', (req, res) => {
-    res.send(req.params.a + req.params.b);
-})
+    res.send('Welcome to Tuiter'));
 
 const PORT = 4000;
-//app.use('/', userController.app);
-userController.app.listen(process.env.PORT || PORT) ||
-tuitController.app.listen(process.env.PORT || PORT);
+app.listen(process.env.PORT || PORT);
