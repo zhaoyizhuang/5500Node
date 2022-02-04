@@ -6,6 +6,7 @@ import User from "../models/User";
 /**
  * This class represents the behaviors that will be execute on Users collection
  * when certain http requests are sent.
+ * Inspired by https://github.com/jannunzi/software-engineering-node/tree/a2
  */
 export default class UserController implements UserControllerI {
     private static userDao: UserDao = UserDao.getInstance();
