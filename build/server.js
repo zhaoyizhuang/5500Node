@@ -16,6 +16,6 @@ const app = (0, express_1.default)();
 app.use(body_parser_1.default.json());
 const userController = UserController_1.default.getInstance(app);
 const tuitController = TuitController_1.default.getInstance(app);
-app.get('', (req, res) => res.send('Welcome to Tuiter'));
+app.get('', (req, res) => res.sendFile('index.html', { root: './' }));
 const PORT = 4000;
 app.listen(process.env.PORT || PORT);

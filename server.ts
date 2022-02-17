@@ -16,7 +16,7 @@ const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 
 app.get('', (req, res) =>
-    res.send('Welcome to Tuiter'));
+    res.sendFile('index.html', {root: './'}));
 
 const PORT = 4000;
 app.listen(process.env.PORT || PORT);
