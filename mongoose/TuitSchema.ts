@@ -1,9 +1,12 @@
+/**
+ * @file mongoose schema for tuit
+ */
 import mongoose, {Schema} from "mongoose";
 import Tuit from "../models/Tuit";
 
 /**
- * This is the schema which represent tuit document instances stores in the
- * MongoDB database.
+ * @const {Schema} TuitSchema is the schema which represent tuit document
+ * instances stores in the MongoDB database.
  */
 const TuitSchema = new mongoose.Schema<Tuit>({
     tuit: {type: String, required: true},

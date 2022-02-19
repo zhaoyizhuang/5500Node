@@ -1,10 +1,13 @@
+/**
+ * mongoose schema for user
+ */
 import mongoose from "mongoose";
 import loc from "../mongoose/LocationSchema"
 import User from "../models/User"
 
 /**
- * This is the schema which represent user document instances stores in the
- * MongoDB database.
+ * @const {Schema} UserSchema is the schema which represent
+ * user document instances stores in the MongoDB database.
  */
 const UserSchema = new mongoose.Schema<User>({
     username: {type: String, required: true},

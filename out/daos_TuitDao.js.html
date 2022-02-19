@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: daos/TuitDao.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: daos/TuitDao.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @file Data Access Object for Tuit object to interact with database.
+ */
+const Tuit_1 = __importDefault(require("../models/Tuit"));
+const TuitModel_1 = __importDefault(require("../mongoose/TuitModel"));
+/**
+ * @class TuitDao represents the Tuit Data Access Object which is used to connect
+ * the object with the database actions.
+ * @property {TuitDao} tuitDao Singleton DAO implementing tuit CRUD operations
+ */
+class TuitDao {
+    constructor() { }
+    /**
+     * create a tuit instance into database
+     *
+     * @param {string} uid represents the uid of the the user who created the tuit
+     * @param {Tuit} tuit represent the tuit object that has been created.
+     * @returns {Promise&lt;Tuit>}
+     */
+    createTuit(uid, tuit) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield TuitModel_1.default.create(Object.assign(Object.assign({}, tuit), { postBy: uid }));
+        });
+    }
+    /**
+     * delete a tuit instance from database.
+     *
+     * @param {string} tid tuit's primary key.
+     * @return {Promise&lt;any>}
+     * @memberof TuitDao
+     */
+    deleteTuit(tid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return TuitModel_1.default.deleteOne({ _id: tid });
+        });
+    }
+    /**
+     * retrieve all tuits.
+     *
+     * @return {Promise&lt;Tuit[]>}
+     * @memberof TuitDao
+     */
+    findAllTuits() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return TuitModel_1.default.find();
+        });
+    }
+    /**
+     * retrieve the specific tuits.
+     *
+     * @param {string} tid tuit's primary key.
+     * @return {Promise&lt;any>}
+     * @memberof TuitDao
+     */
+    findTuitById(tid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return TuitModel_1.default.findById(tid).populate("postBy").exec();
+        });
+    }
+    /**
+     * retrieve all tuits posted by a user.
+     *
+     * @param {string} uid user's primary key.
+     * @return {Promise&lt;Tuit[]>}
+     * @memberof TuitDao
+     */
+    findTuitsByUser(uid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return TuitModel_1.default.find({ postBy: uid });
+        });
+    }
+    /**
+     * update a tuit.
+     *
+     * @param {string} tid tuit's primary key.
+     * @param {Tuit} tuit updated tuit to replace the original one.
+     * @return {Promise&lt;any>}
+     * @memberof TuitDao
+     */
+    updateTuit(tid, tuit) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return TuitModel_1.default.updateOne({ _id: tid }, { $set: Tuit_1.default });
+        });
+    }
+}
+exports.default = TuitDao;
+TuitDao.tuitDao = null;
+/**
+ * Create singleton DAO instance
+ * @return TuitDao
+ */
+TuitDao.getInstance = () => {
+    if (TuitDao.tuitDao === null) {
+        TuitDao.tuitDao = new TuitDao();
+    }
+    return TuitDao.tuitDao;
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AccountType.html">AccountType</a></li><li><a href="Location.html">Location</a></li><li><a href="MaritalStatus.html">MaritalStatus</a></li><li><a href="Tag.html">Tag</a></li><li><a href="Topic.html">Topic</a></li><li><a href="Tuit.html">Tuit</a></li><li><a href="TuitController.html">TuitController</a></li><li><a href="TuitDao.html">TuitDao</a></li><li><a href="User.html">User</a></li><li><a href="UserController.html">UserController</a></li><li><a href="UserDao.html">UserDao</a></li></ul><h3>Global</h3><ul><li><a href="global.html#LocationSchema">LocationSchema</a></li><li><a href="global.html#mongoose_1">mongoose_1</a></li><li><a href="global.html#TuitModel">TuitModel</a></li><li><a href="global.html#TuitSchema">TuitSchema</a></li><li><a href="global.html#UserModel">UserModel</a></li><li><a href="global.html#UserSchema">UserSchema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat Feb 19 2022 13:56:42 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
