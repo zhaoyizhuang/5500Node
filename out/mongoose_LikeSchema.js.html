@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/Tuit.js</title>
+    <title>JSDoc: Source: mongoose/LikeSchema.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/Tuit.js</h1>
+    <h1 class="page-title">Source: mongoose/LikeSchema.js</h1>
 
     
 
@@ -27,21 +27,39 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @class Tuit represent the tuit that is been posted by users.
- * @property {string} tuit Context of a tuit
- * @property {Date} postedOn when does the tuit posted
- * @property {User} postBy who posted the tuit.
+ * @file mongoose schema for like
  */
-class Tuit {
-    constructor() {
-        this.tuit = '';
-        this.postedOn = new Date();
-        this.postBy = null;
-    }
-}
-exports.default = Tuit;
+var __createBinding = (this &amp;&amp; this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this &amp;&amp; this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this &amp;&amp; this.__importStar) || function (mod) {
+    if (mod &amp;&amp; mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" &amp;&amp; Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = __importStar(require("mongoose"));
+/**
+ * @const {Schema} LikeSchema is the schema which represent like relationship
+ * between users and tuits instances stores in the MongoDB database.
+ */
+const LikeSchema = new mongoose_1.default.Schema({
+    tuit: { type: mongoose_1.Schema.Types.ObjectId, ref: "TuitModel" },
+    likedBy: { type: mongoose_1.Schema.Types.ObjectId, ref: "UserModel" }
+}, { collection: "likes" });
+exports.default = LikeSchema;
 </code></pre>
         </article>
     </section>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/Tuit.js</title>
+    <title>JSDoc: Source: models/Like.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/Tuit.js</h1>
+    <h1 class="page-title">Source: models/Like.js</h1>
 
     
 
@@ -27,21 +27,24 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
+/**
+ * @file Declares Like data type representing relationship between
+ * users and tuits, as in user likes a tuit
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @class Tuit represent the tuit that is been posted by users.
- * @property {string} tuit Context of a tuit
- * @property {Date} postedOn when does the tuit posted
- * @property {User} postBy who posted the tuit.
+ * @class Like Represents likes relationship between a user and a tuit,
+ * as in a user likes a tuit
+ * @property {Tuit} tuit Tuit being liked
+ * @property {User} likedBy User liking the tuit
  */
-class Tuit {
+class Like {
     constructor() {
-        this.tuit = '';
-        this.postedOn = new Date();
-        this.postBy = null;
+        this.tuit = null;
+        this.likedBy = null;
     }
 }
-exports.default = Tuit;
+exports.default = Like;
 </code></pre>
         </article>
     </section>

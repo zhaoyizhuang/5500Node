@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/Tuit.js</title>
+    <title>JSDoc: Source: mongoose/LikeModel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/Tuit.js</h1>
+    <h1 class="page-title">Source: mongoose/LikeModel.js</h1>
 
     
 
@@ -27,21 +27,17 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @class Tuit represent the tuit that is been posted by users.
- * @property {string} tuit Context of a tuit
- * @property {Date} postedOn when does the tuit posted
- * @property {User} postBy who posted the tuit.
+ * @file mongoose model for like
  */
-class Tuit {
-    constructor() {
-        this.tuit = '';
-        this.postedOn = new Date();
-        this.postBy = null;
-    }
-}
-exports.default = Tuit;
+const mongoose_1 = __importDefault(require("mongoose"));
+const LikeSchema_1 = __importDefault(require("./LikeSchema"));
+const LikeModel = mongoose_1.default.model("LikeModel", LikeSchema_1.default);
+exports.default = LikeModel;
 </code></pre>
         </article>
     </section>

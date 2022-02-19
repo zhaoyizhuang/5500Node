@@ -1,5 +1,5 @@
 /**
- * @file Account types of User's acount.
+ * @file AccountType data type represents the type of User's account.
  */
 
 /**

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: TuitDao</title>
+    <title>JSDoc: Class: LikeDao</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: TuitDao</h1>
+    <h1 class="page-title">Class: LikeDao</h1>
 
     
 
@@ -28,9 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>TuitDao<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>LikeDao<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">TuitDao represents the Tuit Data Access Object which is used to connect
+            <div class="class-description">LikeDao represents the Like Data Access Object which is used to connect
 the object with the database actions.</div>
         
     
@@ -46,7 +46,7 @@ the object with the database actions.</div>
     
 
     
-    <h4 class="name" id="TuitDao"><span class="type-signature"></span>new TuitDao<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="LikeDao"><span class="type-signature"></span>new LikeDao<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -91,13 +91,13 @@ the object with the database actions.</div>
 
         <tr>
             
-                <td class="name"><code>tuitDao</code></td>
+                <td class="name"><code>likeDao</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="TuitDao.html">TuitDao</a></span>
+<span class="param-type"><a href="LikeDao.html">LikeDao</a></span>
 
 
             
@@ -107,7 +107,7 @@ the object with the database actions.</div>
 
             
 
-            <td class="description last">Singleton DAO implementing tuit CRUD operations</td>
+            <td class="description last">Singleton DAO implementing like CRUD operations</td>
         </tr>
 
     
@@ -146,7 +146,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line25">line 25</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -254,7 +254,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line106">line 106</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line74">line 74</a>
     </li></ul></dd>
     
 
@@ -283,7 +283,7 @@ the object with the database actions.</div>
 
         
 <div class="param-desc">
-    TuitDao
+    LikeDao
 </div>
 
 
@@ -300,7 +300,7 @@ the object with the database actions.</div>
     
 
     
-    <h4 class="name" id="createTuit"><span class="type-signature"></span>createTuit<span class="signature">(uid, tuit)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Tuit.html">Tuit</a>>}</span></h4>
+    <h4 class="name" id=".this.findAllTuitsLikedByUser"><span class="type-signature">(static) </span>this.findAllTuitsLikedByUser<span class="signature">(uid)</span><span class="type-signature"></span></h4>
     
 
     
@@ -308,7 +308,7 @@ the object with the database actions.</div>
 
 
 <div class="description">
-    create a tuit instance into database
+    retrieve all tuits the user liked.
 </div>
 
 
@@ -360,30 +360,7 @@ the object with the database actions.</div>
 
             
 
-            <td class="description last">represents the uid of the the user who created the tuit</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tuit</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Tuit.html">Tuit</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">represent the tuit object that has been created.</td>
+            <td class="description last">user's primary key</td>
         </tr>
 
     
@@ -424,7 +401,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line34">line 34</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -449,24 +426,6 @@ the object with the database actions.</div>
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="Tuit.html">Tuit</a>></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -478,7 +437,7 @@ the object with the database actions.</div>
     
 
     
-    <h4 class="name" id="deleteTuit"><span class="type-signature"></span>deleteTuit<span class="signature">(tid)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    <h4 class="name" id=".this.findAllUsersThatLikedTuit"><span class="type-signature">(static) </span>this.findAllUsersThatLikedTuit<span class="signature">(tid)</span><span class="type-signature"></span></h4>
     
 
     
@@ -486,7 +445,7 @@ the object with the database actions.</div>
 
 
 <div class="description">
-    delete a tuit instance from database.
+    retrieve all users who liked a specific tuit.
 </div>
 
 
@@ -538,7 +497,7 @@ the object with the database actions.</div>
 
             
 
-            <td class="description last">tuit's primary key.</td>
+            <td class="description last">represents the tuit's primary key.</td>
         </tr>
 
     
@@ -579,7 +538,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line46">line 46</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -604,24 +563,6 @@ the object with the database actions.</div>
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;any></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -633,7 +574,7 @@ the object with the database actions.</div>
     
 
     
-    <h4 class="name" id="findAllTuits"><span class="type-signature"></span>findAllTuits<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Tuit.html">Tuit</a>>>}</span></h4>
+    <h4 class="name" id=".this.userLikesTuit"><span class="type-signature">(static) </span>this.userLikesTuit<span class="signature">(uid, tid)</span><span class="type-signature"></span></h4>
     
 
     
@@ -641,268 +582,7 @@ the object with the database actions.</div>
 
 
 <div class="description">
-    retrieve all tuits.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line57">line 57</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array.&lt;<a href="Tuit.html">Tuit</a>>></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="findTuitById"><span class="type-signature"></span>findTuitById<span class="signature">(tid)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    retrieve the specific tuits.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>tid</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">tuit's primary key.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line69">line 69</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;any></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="findTuitsByUser"><span class="type-signature"></span>findTuitsByUser<span class="signature">(uid)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Tuit.html">Tuit</a>>>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    retrieve all tuits posted by a user.
+    create a like relationship between a tuit and a user
 </div>
 
 
@@ -954,7 +634,30 @@ the object with the database actions.</div>
 
             
 
-            <td class="description last">user's primary key.</td>
+            <td class="description last">user's primary id</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tuit's primary id</td>
         </tr>
 
     
@@ -995,7 +698,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line81">line 81</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -1020,24 +723,6 @@ the object with the database actions.</div>
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array.&lt;<a href="Tuit.html">Tuit</a>>></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -1049,7 +734,7 @@ the object with the database actions.</div>
     
 
     
-    <h4 class="name" id="updateTuit"><span class="type-signature"></span>updateTuit<span class="signature">(tid, tuit)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+    <h4 class="name" id=".this.userUnlikesTuit"><span class="type-signature">(static) </span>this.userUnlikesTuit<span class="signature">(uid, tid)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1057,7 +742,7 @@ the object with the database actions.</div>
 
 
 <div class="description">
-    update a tuit.
+    delete a like relationship between a tuit and a user
 </div>
 
 
@@ -1093,6 +778,29 @@ the object with the database actions.</div>
 
         <tr>
             
+                <td class="name"><code>uid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">user's primary id</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>tid</code></td>
             
 
@@ -1109,30 +817,7 @@ the object with the database actions.</div>
 
             
 
-            <td class="description last">tuit's primary key.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tuit</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Tuit.html">Tuit</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">updated tuit to replace the original one.</td>
+            <td class="description last">tuit's primary id</td>
         </tr>
 
     
@@ -1173,7 +858,7 @@ the object with the database actions.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="daos_TuitDao.js.html">daos/TuitDao.js</a>, <a href="daos_TuitDao.js.html#line94">line 94</a>
+        <a href="daos_LikeDao.js.html">daos/LikeDao.js</a>, <a href="daos_LikeDao.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -1198,24 +883,6 @@ the object with the database actions.</div>
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;any></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
