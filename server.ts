@@ -6,6 +6,7 @@
  *     <li>tuits</li>
  *     <li>likes</li>
  *     <li>follows</li>
+ *     <li>bookmarks</li>
  * </ul>
  *
  * Connects to a remote MongoDB instance hosted on the Atlas cloud database
@@ -16,6 +17,7 @@ import UserController from "./controllers/UserController";
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
 import FollowController from "./controllers/FollowController";
+import BookmarkController from "./controllers/BookmarkController";
 import mongoose from "mongoose";
 
 mongoose
@@ -29,6 +31,7 @@ const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 const likeController = LikeController.getInstance(app);
 const followController = FollowController.getInstance(app);
+const bookController = BookmarkController.getInstance(app);
 
 app.get('', (req, res) =>
     res.sendFile('index.html', {root: './'}));

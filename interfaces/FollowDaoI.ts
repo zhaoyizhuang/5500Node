@@ -1,8 +1,7 @@
 import Follow from "../models/Follow";
-import User from "../models/User";
 
 /**
- * @file Declares API for Likes related data access object methods
+ * @file Declares API for Follows related data access object methods
  */
 export default interface FollowDaoI {
     follow (followerid: string, followingid: string): Promise<Follow>;

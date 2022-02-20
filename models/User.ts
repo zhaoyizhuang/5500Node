@@ -4,6 +4,7 @@
 import AccountType from "./AccountType";
 import MaritalStatus from "./MaritalStatus";
 import Location from "./Location";
+import Tuit from "./Tuit";
 
 /**
  * @class User This class represents the user account on the Tuiter.
@@ -20,6 +21,7 @@ import Location from "./Location";
  * @property {string} dateOfBirth birth date of the account
  * @property {string} joined date of the account created
  * @property {string} location location of the account
+ * @property {Tuit[]} bookmarks user's bookmark of tuits.
  * 
  */
 export default class User {
@@ -36,4 +38,5 @@ export default class User {
     private dateOfBirth: Date | null = null;
     private joined: Date = new Date();
     private location: Location | null = null;
+    private bookmarks: Tuit[] = [];
 }

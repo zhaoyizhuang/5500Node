@@ -1,7 +1,7 @@
 /**
  * mongoose schema for user
  */
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
 import loc from "../mongoose/LocationSchema"
 import User from "../models/User"
 
@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema<User>({
     biography: String,
     dateOfBirth: Date,
     joined: {type: Date, default: Date.now},
-    location: loc
+    location: loc,
+    bookmarks: [{type: Schema.Types.ObjectId, ref: "TuitModel"}]
 }, {collection: 'users'});
 export default UserSchema;
