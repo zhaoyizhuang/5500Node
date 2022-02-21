@@ -39,7 +39,7 @@ export default class MessageController implements MessageControllerI {
             app.get("/users/:uid/messages", MessageController.messageController.viewReceived);
             app.get("/users/:uid/messages/sent", MessageController.messageController.viewSent);
             app.post("/users/:uid/messages/:receiveid", MessageController.messageController.send);
-            app.delete("/users/messages/:msgid", MessageController.messageController.delete);
+            app.delete("/messages/:msgid", MessageController.messageController.delete);
         }
         return MessageController.messageController;
     }
