@@ -12,7 +12,7 @@ import BookmarkControllerI from "../interfaces/BookmarkControllerI";
  * <ul>
  *     <li>PUT /users/:uid/bookmarks/:tid to record that a user bookmark one tuit
  *     </li>
- *     <li>DELETE /users/:uid/bookmarks/:tid to record that a user
+ *     <li>PUT /users/:uid/bookmarks/remove/:tid to record that a user
  *     no longer bookmark one tuit</li>
  *     <li>GET /users/:uid/bookmarks to retrieve user's bookmarks
  *     </li>
@@ -35,7 +35,7 @@ export default class BookmarkController implements BookmarkControllerI {
         if(BookmarkController.bookmarkController === null) {
             BookmarkController.bookmarkController = new BookmarkController();
             app.put("/users/:uid/bookmarks/:tid", BookmarkController.bookmarkController.bookmarks);
-            app.delete("/users/:uid/bookmarks/:tid", BookmarkController.bookmarkController.unBookmark);
+            app.put("/users/:uid/bookmarks/remove/:tid", BookmarkController.bookmarkController.unBookmark);
             app.get("/users/:uid/bookmarks", BookmarkController.bookmarkController.viewBookmarks);
         }
         return BookmarkController.bookmarkController;

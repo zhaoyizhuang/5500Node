@@ -15,7 +15,7 @@ import {Express, Request, Response} from "express";
  *     </li>
  *     <li>POST /users/:uid/messages/:receiveid to create a new message instance related two users
  *     </li>
- *     <li>DELETE /users/messages/:msgid to remove a particular message instance
+ *     <li>DELETE /messages/:msgid to remove a particular message instance
  *     no longer follows another user</li>
  * </ul>
  * @property {MessageDao} messageDao Singleton DAO implementing messages CRUD operations
