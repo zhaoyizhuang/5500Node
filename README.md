@@ -1,2 +1,2 @@
 # Project Overview
-The project is deployed on https://pure-gorge-69681.herokuapp.com/
+A2 is deployed on https://zzyassign2.herokuapp.com/
