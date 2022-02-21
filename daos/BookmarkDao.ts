@@ -74,7 +74,10 @@ export default class BookmarkDao implements BookmarkDaoI {
      * @memberof BookmarkDao
      */
     async viewBookmarks(uid: string): Promise<any> {
-        return UserModel.findById(uid).populate("bookmarks").exec();
+        return UserModel.findById(uid)
+            .populate("bookmarks")
+            .select('bookmarks')
+            .exec();
     }
 
 }

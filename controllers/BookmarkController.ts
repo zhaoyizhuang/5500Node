@@ -76,8 +76,9 @@ export default class BookmarkController implements BookmarkControllerI {
      *
      * @param {Request} req Represents request from client, including the
      * path parameters uid representing the user
-     * @param {Response} res Represents response to client, including user's body
-     * in JSON format
+     * @param {Response} res Represents response to client, including the
+     * body formatted as JSON arrays containing the tuit objects which are
+     * bookmarked by the user
      * @memberof BookmarkController
      */
     viewBookmarks = (req: Request, res: Response) =>
