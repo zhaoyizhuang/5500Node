@@ -5,6 +5,7 @@ import {Request, Response, Express} from "express";
 import TuitDao from "../daos/TuitDao";
 import TuitControllerI from "../interfaces/TuitController";
 import Tuit from "../models/Tuit";
+import LikeDao from "../daos/LikeDao";
 
 /**
  * @class TuitController Implements RESTful Web service API for tuits resource.
@@ -18,13 +19,15 @@ import Tuit from "../models/Tuit";
  *     <li>PUT /tuits/:tid to modify an individual tuit instance </li>
  *     <li>DELETE /tuits/:tid to remove a particular tuit instance</li>
  * </ul>
- * @property {TuitDao} tuitDao Singleton DAO implementing tuit CRUD operations
+ * @property {TuitDao} tuitDao Singleton DAO implementing tuits CRUD operations
+ * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
  * @property {TuitController} tuitController Singleton controller implementing
  * RESTful Web service API
  * reference: https://github.com/jannunzi/software-engineering-node/tree/a2
  */
 export default class TuitController implements TuitControllerI {
     private static tuitDao: TuitDao = TuitDao.getInstance();
+    private static likeDao: LikeDao = LikeDao.getInstance();
     private static tuitController: TuitController | null = null;
 
     /**
@@ -67,7 +70,11 @@ export default class TuitController implements TuitControllerI {
      * on whether deleting a user was successful or not
      */
     deleteTuit = (req: Request, res: Response) =>
-        TuitController.tuitDao.deleteTuit(req.params.tid).then(status => res.json(status));
+        TuitController.likeDao.TuitDeleted(req.params.tid)
+            .then(() => TuitController.tuitDao.deleteTuit(req.params.tid))
+            .then(status => res.json(status));
+
+
 
     /**
      * Retrieves all tuits from the database and returns an array of tuits.

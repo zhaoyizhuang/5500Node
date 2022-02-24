@@ -70,4 +70,12 @@ export default class LikeDao implements LikeDaoI {
     userUnlikesTuit = async (uid: string, tid: string): Promise<any> =>
         LikeModel.deleteOne({tuit: tid, likedBy: uid});
 
+
+    /**
+     * Remove all Likes relationship contains the deleted tuit.
+     *
+     * @param {string} tid Tuit id
+     */
+    TuitDeleted = async (tid: string): Promise<any> =>
+        LikeModel.deleteMany({tuit: tid});
 }
