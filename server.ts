@@ -23,7 +23,7 @@ import MessageController from "./controllers/MessageController";
 import mongoose from "mongoose";
 
 mongoose
-    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A2database?retryWrites=true&w=majority")
+    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A3database?retryWrites=true&w=majority")
     .then(() => {console.log("MongoDB connected")});
 
 const app = express();

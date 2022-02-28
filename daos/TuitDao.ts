@@ -54,7 +54,8 @@ export default class TuitDao implements TuitDaoI{
      * @memberof TuitDao
      */
     async findAllTuits(): Promise<Tuit[]> {
-        return TuitModel.find();
+        return TuitModel.find()
+            .populate("postBy").exec();
     }
 
     /**

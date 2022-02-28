@@ -27,7 +27,7 @@ const BookmarkController_1 = __importDefault(require("./controllers/BookmarkCont
 const MessageController_1 = __importDefault(require("./controllers/MessageController"));
 const mongoose_1 = __importDefault(require("mongoose"));
 mongoose_1.default
-    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A2database?retryWrites=true&w=majority")
+    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A3database?retryWrites=true&w=majority")
     .then(() => { console.log("MongoDB connected"); });
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
