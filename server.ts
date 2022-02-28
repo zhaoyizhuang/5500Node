@@ -21,6 +21,7 @@ import FollowController from "./controllers/FollowController";
 import BookmarkController from "./controllers/BookmarkController";
 import MessageController from "./controllers/MessageController";
 import mongoose from "mongoose";
+var cors = require('cors')
 
 mongoose
     .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A3database?retryWrites=true&w=majority")
@@ -28,6 +29,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
