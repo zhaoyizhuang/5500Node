@@ -45,6 +45,8 @@ export default class UserController implements UserControllerI {
             //testing http endpoints
             app.get("/users/username/:username/delete",
                 UserController.userController.deleteUsersByUsername);
+            app.get("/users/username/:username/get",
+                UserController.userController.findUserByUsername);
 
         }
         return UserController.userController;
@@ -148,4 +150,16 @@ export default class UserController implements UserControllerI {
             .then(user => {
 
             })
+
+    /**
+     * Retrieves the user by their usernames
+     * @param {Request} req Represents request from client, including params
+     * contains username
+     * @param {Response} res Represents response to client, including the
+     * body formatted as JSON containing the user that matches the username
+     */
+    findUserByUsername = (req: Request, res: Response) =>
+        UserController.userDao.findUserByUsername(req.params.username)
+            .then((user: User) => res.json(user));
+
 }
