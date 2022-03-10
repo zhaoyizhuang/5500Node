@@ -43,14 +43,8 @@ export default class UserController implements UserControllerI {
             app.post('/login', UserController.userController.login);
 
             //testing http endpoints
-            app.get("/users/create",
-                UserController.userController.createUser);
-            app.get("/users/id/:uid/delete",
-                UserController.userController.deleteUser);
             app.get("/users/username/:username/delete",
                 UserController.userController.deleteUsersByUsername);
-            app.get("/users/delete",
-                UserController.userController.deleteAllUsers);
 
         }
         return UserController.userController;
@@ -125,15 +119,30 @@ export default class UserController implements UserControllerI {
         UserController.userDao.deleteAllUsers()
             .then((status) => res.send(status));
 
+    /**
+     * remove all user by username
+     * @param req request from client, contains the username
+     * @param res response to client, indicating the status of deletion
+     */
     deleteUsersByUsername = (req: Request, res: Response) =>
         UserController.userDao.deleteUsersByUsername(req.params.username)
             .then(status => res.send(status));
 
 
+    /**
+     * authorization of user
+     * @param req request from client, contains username and password
+     * @param res response to client, coantains user's information
+     */
     login = (req: Request, res: Response) =>
         UserController.userDao.findUserByCredentials(req.body.username, req.body.password)
             .then(user => {res.json(user)});
 
+    /**
+     * register the user.
+     * @param req request from client, contains registration information
+     * @param res response to client, if user exist, do not create a new one.
+     */
     register = (req: Request, res: Response) =>
         UserController.userDao.findUserByUsername(req.body.username)
             .then(user => {

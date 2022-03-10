@@ -92,4 +92,12 @@ export default class TuitDao implements TuitDaoI{
         return TuitModel.updateOne({_id: tid}, {$set: tuit});
     }
 
+    /**
+     * Delete all tuits post by a user
+     * @param uid user's primary key
+     */
+    async deleteTuitsByUser(uid: string): Promise<any> {
+        return TuitModel.deleteMany({postBy: uid});
+    }
+
 }
