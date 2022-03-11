@@ -4,6 +4,7 @@
 import User from "../models/User";
 import UserModel from "../mongoose/UserModel";
 import UserDaoI from "../interfaces/UserDao";
+import TuitDao from "./TuitDao";
 
 /**
  * @class UserDao represents the User Data Access Object which is used to
@@ -67,6 +68,7 @@ export default class UserDao implements UserDaoI {
      * @memberof UserDao
      */
     async deleteUser(uid: string):  Promise<any> {
+        await TuitDao.getInstance().deleteTuitsByUser(uid);
         return UserModel.deleteOne({_id: uid});
     }
 
