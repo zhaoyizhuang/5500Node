@@ -47,7 +47,12 @@ export default class LikeDao implements LikeDaoI {
     findAllTuitsLikedByUser = async (uid: string): Promise<Like[]> =>
         LikeModel
             .find({likedBy: uid})
-            .populate("tuit")
+            .populate({
+                path: "tuit",
+                populate: {
+                    path: "postBy"
+                }
+            })
             .exec();
 
     /**
@@ -78,4 +83,9 @@ export default class LikeDao implements LikeDaoI {
      */
     TuitDeleted = async (tid: string): Promise<any> =>
         LikeModel.deleteMany({tuit: tid});
+
+    findUserLikesTuit = async (uid: string, tid: string): Promise<any> =>
+        LikeModel.findOne({tuit: tid, likedBy: uid});
+    countHowManyLikedTuit = async (tid: string): Promise<any> =>
+        LikeModel.count({tuit: tid});
 }
