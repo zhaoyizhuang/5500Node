@@ -20,16 +20,38 @@ import LikeController from "./controllers/LikeController";
 import FollowController from "./controllers/FollowController";
 import BookmarkController from "./controllers/BookmarkController";
 import MessageController from "./controllers/MessageController";
+import AuthenticationController from "./controllers/AuthController";
+
 import mongoose from "mongoose";
-var cors = require('cors')
+
+const cors = require('cors')
 
 mongoose
-    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A3database?retryWrites=true&w=majority")
+    .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A4database?retryWrites=true&w=majority")
     .then(() => {console.log("MongoDB connected")});
 
+const session = require("express-session");
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+}));
+
+let sess = {
+    secret: 'process.env.SECRET',
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+        secure: false
+    }
+}
+if (process.env.ENV === 'PRODUCTION') {
+    app.set('trust proxy', 1) // trust first proxy
+    sess.cookie.secure = true // serve secure cookies
+}
+
+app.use(session(sess));
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
@@ -37,6 +59,7 @@ const likeController = LikeController.getInstance(app);
 const followController = FollowController.getInstance(app);
 const bookController = BookmarkController.getInstance(app);
 const messageController = MessageController.getInstance(app);
+AuthenticationController(app);
 
 app.get('', (req, res) =>
     res.sendFile('index.html', {root: './'}));
