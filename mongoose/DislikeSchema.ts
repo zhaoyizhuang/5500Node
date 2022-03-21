@@ -1,5 +1,5 @@
 /**
- * @file mongoose schema for like
+ * @file mongoose schema for dislike
  */
 
 import mongoose, {Schema} from "mongoose";
