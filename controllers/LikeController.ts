@@ -7,17 +7,15 @@ import LikeControllerI from "../interfaces/LikeControllerI";
 import TuitDao from "../daos/TuitDao";
 
 /**
- * @class TuitController Implements RESTful Web service API for likes resource.
+ * @class LikeController Implements RESTful Web service API for likes resource.
  * Defines the following HTTP endpoints:
  * <ul>
  *     <li>GET /users/:uid/likes to retrieve all the tuits liked by a user
  *     </li>
  *     <li>GET /tuits/:tid/likes to retrieve all users that liked a tuit
  *     </li>
- *     <li>POST /users/:uid/likes/:tid to record that a user likes a tuit
+ *     <li>PUT /users/:uid/likes/:tid to record that a user likes or unlike a tuit
  *     </li>
- *     <li>DELETE /users/:uid/unlikes/:tid to record that a user
- *     no longer likes a tuit</li>
  * </ul>
  * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
  * @property {LikeController} LikeController Singleton controller implementing
