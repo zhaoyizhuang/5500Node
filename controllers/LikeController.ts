@@ -73,6 +73,13 @@ export default class LikeController implements LikeControllerI {
         const userId = uid === "me" && profile ?
             profile._id : uid;
 
+        if (userId === "me") {
+            console.log("findAllTuitsLikedByUser's userId is me");
+            // @ts-ignore
+            console.log(req.session['profile']);
+            return;
+        }
+
         LikeController.likeDao.findAllTuitsLikedByUser(userId)
             .then(likes => {
                 const likesNonNullTuits = likes.filter(like => like.tuit);
@@ -98,6 +105,14 @@ export default class LikeController implements LikeControllerI {
         const profile = req.session['profile'];
         const userId = uid === "me" && profile ?
             profile._id : uid;
+
+        if (userId === "me") {
+            console.log("userTogglesTuitLikes's userId is me");
+            // @ts-ignore
+            console.log(req.session['profile']);
+            return;
+        }
+
         try {
             const userAlreadyLikedTuit = await likeDao.findUserLikesTuit(userId, tid);
             const howManyLikedTuit = await likeDao.countHowManyLikedTuit(tid);
