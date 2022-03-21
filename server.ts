@@ -37,7 +37,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: 'https://jazzy-bavarois-13510f.netlify.app'
+    origin: 'https://zzy5500.netlify.app'
     // origin: 'http://localhost:3000'
 }));
 
