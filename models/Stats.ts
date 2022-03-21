@@ -7,9 +7,11 @@
  * @property {number} replies replies a tuit received
  * @property {number} retuits retuits a tuit received
  * @property {number} likes likes a tuit received
+ * @property {number} dislikes dislikes a tuit received
  */
 export default interface Stats {
     replies?: number,
     retuits: number,
-    likes: number
+    likes: number,
+    dislikes: number
 }
