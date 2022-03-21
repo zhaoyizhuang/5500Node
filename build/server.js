@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *     <li>follows</li>
  *     <li>bookmarks</li>
  *     <li>messages</li>
+ *     <li>dislikes</i>
  * </ul>
  *
  * Connects to a remote MongoDB instance hosted on the Atlas cloud database
@@ -26,6 +27,7 @@ const FollowController_1 = __importDefault(require("./controllers/FollowControll
 const BookmarkController_1 = __importDefault(require("./controllers/BookmarkController"));
 const MessageController_1 = __importDefault(require("./controllers/MessageController"));
 const AuthController_1 = __importDefault(require("./controllers/AuthController"));
+const DislikeController_1 = __importDefault(require("./controllers/DislikeController"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cors = require('cors');
 mongoose_1.default
@@ -57,6 +59,7 @@ const likeController = LikeController_1.default.getInstance(app);
 const followController = FollowController_1.default.getInstance(app);
 const bookController = BookmarkController_1.default.getInstance(app);
 const messageController = MessageController_1.default.getInstance(app);
+const dislikeController = DislikeController_1.default.getInstance(app);
 (0, AuthController_1.default)(app);
 app.get('', (req, res) => res.sendFile('index.html', { root: './' }));
 /**

@@ -8,6 +8,7 @@
  *     <li>follows</li>
  *     <li>bookmarks</li>
  *     <li>messages</li>
+ *     <li>dislikes</i>
  * </ul>
  *
  * Connects to a remote MongoDB instance hosted on the Atlas cloud database
@@ -21,6 +22,7 @@ import FollowController from "./controllers/FollowController";
 import BookmarkController from "./controllers/BookmarkController";
 import MessageController from "./controllers/MessageController";
 import AuthenticationController from "./controllers/AuthController";
+import DislikeController from "./controllers/DislikeController";
 
 import mongoose from "mongoose";
 
@@ -59,6 +61,7 @@ const likeController = LikeController.getInstance(app);
 const followController = FollowController.getInstance(app);
 const bookController = BookmarkController.getInstance(app);
 const messageController = MessageController.getInstance(app);
+const dislikeController = DislikeController.getInstance(app);
 AuthenticationController(app);
 
 app.get('', (req, res) =>
