@@ -7,7 +7,7 @@ const PROTOCOL = "mongodb+srv";
 const DB_USERNAME = "ericzzy";//process.env.DB_USERNAME;
 const DB_PASSWORD = "12345";//process.env.DB_PASSWORD;
 const HOST = "cluster0.zg3q7.mongodb.net";
-const DB_NAME = "A3database";
+const DB_NAME = "A4database";
 const DB_QUERY = "retryWrites=true&w=majority";
 const connectionString = `${PROTOCOL}://${DB_USERNAME}:${DB_PASSWORD}@${HOST}/${DB_NAME}?${DB_QUERY}`;
 // connect to the database
