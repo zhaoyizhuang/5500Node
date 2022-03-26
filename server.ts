@@ -34,11 +34,10 @@ mongoose
 
 const session = require("express-session");
 const app = express();
-app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: 'https://zzy5500.netlify.app'
-    // origin: 'http://localhost:3000'
+    // origin: 'https://zzy5500.netlify.app'
+    origin: 'http://localhost:3000'
 }));
 
 let sess = {
@@ -55,6 +54,7 @@ if (process.env.ENV === 'PRODUCTION') {
 }
 
 app.use(session(sess));
+app.use(express.json());
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
