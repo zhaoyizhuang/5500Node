@@ -37,7 +37,7 @@ const app = express();
 app.use(cors({
     credentials: true,
     // origin: 'https://zzy5500.netlify.app'
-    origin: 'http://localhost:3000'
+    origin: ['http://localhost:3000', 'https://zzy5500.netlify.app']
 }));
 
 let sess = {
