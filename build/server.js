@@ -30,15 +30,15 @@ const AuthController_1 = __importDefault(require("./controllers/AuthController")
 const DislikeController_1 = __importDefault(require("./controllers/DislikeController"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const cors = require('cors');
+const session = require("express-session");
 mongoose_1.default
     .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A4database?retryWrites=true&w=majority")
     .then(() => { console.log("MongoDB connected"); });
-const session = require("express-session");
 const app = (0, express_1.default)();
-app.use(express_1.default.json());
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    // origin: 'https://zzy5500.netlify.app'
+    origin: ['http://localhost:3000', 'https://zzy5500.netlify.app']
 }));
 let sess = {
     secret: 'process.env.SECRET',
@@ -53,6 +53,7 @@ if (process.env.ENV === 'PRODUCTION') {
     sess.cookie.secure = true; // serve secure cookies
 }
 app.use(session(sess));
+app.use(express_1.default.json());
 const userController = UserController_1.default.getInstance(app);
 const tuitController = TuitController_1.default.getInstance(app);
 const likeController = LikeController_1.default.getInstance(app);

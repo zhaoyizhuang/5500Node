@@ -27,12 +27,13 @@ import DislikeController from "./controllers/DislikeController";
 import mongoose from "mongoose";
 
 const cors = require('cors')
+const session = require("express-session");
 
 mongoose
     .connect("mongodb+srv://ericzzy:12345@cluster0.zg3q7.mongodb.net/A4database?retryWrites=true&w=majority")
     .then(() => {console.log("MongoDB connected")});
 
-const session = require("express-session");
+
 const app = express();
 app.use(cors({
     credentials: true,
