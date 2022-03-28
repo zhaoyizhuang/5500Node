@@ -38,7 +38,8 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: ['https://rainbow-cendol-5a2bcc.netlify.app', 'http://localhost:3000']
+    // origin: 'http://localhost:3000'
 }));
 let sess = {
     secret: 'process.env.SECRET',
