@@ -45,8 +45,10 @@ let sess = {
     secret: 'process.env.SECRET',
     saveUninitialized: true,
     resave: true,
+    proxy: true,
     cookie: {
-        secure: false
+        secure: true,
+        sameSite: 'none'
     }
 }
 if (process.env.ENV === 'PRODUCTION') {

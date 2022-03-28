@@ -35,7 +35,6 @@ mongoose_1.default
     .then(() => { console.log("MongoDB connected"); });
 const session = require("express-session");
 const app = (0, express_1.default)();
-app.use(express_1.default.json());
 app.use(cors({
     credentials: true,
     origin: true
@@ -55,6 +54,7 @@ if (process.env.ENV === 'PRODUCTION') {
     sess.cookie.secure = true; // serve secure cookies
 }
 app.use(session(sess));
+app.use(express_1.default.json());
 const userController = UserController_1.default.getInstance(app);
 const tuitController = TuitController_1.default.getInstance(app);
 const likeController = LikeController_1.default.getInstance(app);
