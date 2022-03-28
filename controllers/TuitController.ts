@@ -121,6 +121,9 @@ export default class TuitController implements TuitControllerI {
      * body formatted as JSON arrays containing the tuit objects
      */
     findTuitsByUser = (req: Request, res: Response) => {
+        console.log("get in findTuitsByUser");
+        // @ts-ignore
+        console.log(req.session['profile']);
         // @ts-ignore
         let userId = (req.params.uid === "my" && req.session['profile'] !== null) ?
             // @ts-ignore
