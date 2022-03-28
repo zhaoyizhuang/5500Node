@@ -34,7 +34,6 @@ mongoose
 
 const session = require("express-session");
 const app = express();
-app.use(express.json());
 app.use(cors({
     credentials: true,
     origin: true
@@ -56,6 +55,7 @@ if (process.env.ENV === 'PRODUCTION') {
 }
 
 app.use(session(sess));
+app.use(express.json());
 
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
