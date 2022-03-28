@@ -37,7 +37,8 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: ['https://rainbow-cendol-5a2bcc.netlify.app', 'http://localhost:3000']
+    origin: true
+    // origin: ['https://rainbow-cendol-5a2bcc.netlify.app', 'http://localhost:3000']
     // origin: 'http://localhost:3000'
 }));
 

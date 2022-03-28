@@ -122,7 +122,7 @@ export default class TuitController implements TuitControllerI {
      */
     findTuitsByUser = (req: Request, res: Response) => {
         // @ts-ignore
-        let userId = req.params.uid === ("my" && req.session['profile'] !== null) ?
+        let userId = (req.params.uid === "my" && req.session['profile'] !== null) ?
             // @ts-ignore
             req.session['profile']._id : req.params.uid;
         if (userId === "my") {
