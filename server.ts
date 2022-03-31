@@ -36,8 +36,8 @@ const session = require("express-session");
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: true
-    // origin: ['https://rainbow-cendol-5a2bcc.netlify.app', 'http://localhost:3000']
+    // origin: true
+    origin: ['https://rainbow-cendol-5a2bcc.netlify.app', 'http://localhost:3000']
     // origin: 'http://localhost:3000'
 }));
 
